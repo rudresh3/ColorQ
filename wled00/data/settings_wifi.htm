@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=500">
+	<title>WiFi Settings</title>
+	<script>
+		function H()
+		{
+			window.open("https://colorq.in/");
+		}
+		function B()
+		{
+			window.open("/settings","_self");
+		}
+		function GetV()
+		{
+			//values injected by server while sending HTML
+		}
+	</script>
+	<style>
+		@import url("style.css");
+	</style>
+</head>
+<body onload="GetV()">
+	<form id="form_s" name="Sf" method="post">
+		<div class="helpB"><button type="button" onclick="H()">?</button></div>
+		<button type="button" onclick="B()">Back</button><button type="submit">Save & Connect</button><hr>
+		<h2>WiFi setup</h2>
+		<h3>Connect to existing network</h3>
+		Network name (SSID, empty to not connect): <br><input name="CS" maxlength="32"><br>
+		Network password: <br> <input type="password" name="CP" maxlength="63"><br>
+		
+		<h3>Configure Access Point</h3>
+		AP SSID (leave empty for no AP):<br> <input name="AS" maxlength="32"><br>
+		Hide AP name: <input type="checkbox" name="AH"><br>
+		AP password (leave empty for open):<br> <input type="password" name="AP" maxlength="63" pattern="(.{8,63})|()" title="Empty or min. 8 characters"><br>
+		Access Point WiFi channel: <input name="AC" type="number" class="xs" min="1" max="13" required><br>
+    AP opens:
+    <select name="AB">
+    <option value="0">No connection after boot</option>
+    <option value="1">Disconnected</option>
+    <option value="2">Always</option>
+    <option value="3">Never (not recommended)</option></select><br>
+		AP IP: <span class="sip"> Not active </span><br>
+		
+		<hr>
+		<button type="button" onclick="B()">Back</button><button type="submit">Save & Connect</button>
+	</form>
+</body>
+</html>
